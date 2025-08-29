@@ -9,34 +9,6 @@ heartButtons.forEach(span => {
 });
 
 
-let coins = 100;
-let coinBox = document.querySelector('.coin-display');
-coinBox.textContent = coins;
-let callHistory = document.getElementById('callHistory');
-let callButtons = document.querySelectorAll('.call-button');
-
-callButtons.forEach(btn => {
-    btn.addEventListener('click', function(){
-        if(coins < 20){
-            alert('Not enough to make a call!');
-            return;
-        }
-        let card = btn.closest(".card");
-        let serviceName = card.querySelector('.service-name').textContent;
-        let serviceNumber = card.querySelector('.service-number').textContent;
-        coins -= 20;
-        coinBox.textContent = coins;
-        alert(`Calling ${serviceName} at ${serviceNumber}...`);
-        let li = document.createElement('li');
-        li.textContent = `${serviceName} - ${serviceNumber}`;
-        callHistory.appendChild(li);
-        document.getElementById('clearHistory').addEventListener('click', function() {
-            callHistory.innerHTML = '';
-        })
-    })
-})
-
-
 let copyCount = 0;
 document.querySelectorAll(".copyBtn").forEach(function(button) {
   button.addEventListener("click", function() {
@@ -49,3 +21,31 @@ document.querySelectorAll(".copyBtn").forEach(function(button) {
   });
 });
 
+
+let coins = 100;
+let coinBox = document.querySelector('.coin-display');
+coinBox.textContent = coins;
+let callHistory = document.getElementById('callHistory');
+let callButtons = document.querySelectorAll('.call-button');
+document.getElementById('clearHistory').addEventListener('click', function() {
+    callHistory.innerHTML = '';
+});
+callButtons.forEach(btn => {
+    btn.addEventListener('click', function(){
+        if(coins < 20){
+            alert('Not enough to make a call!');
+            return;
+        }
+        let card = btn.closest(".card");
+        let serviceName = card.querySelector('.service-name').textContent;
+        let serviceNumber = card.querySelector('.service-number').textContent;
+        coins -= 20;
+        coinBox.textContent = coins;
+        let now = new Date();
+        let time = now.toLocaleTimeString();
+        alert(`Calling ${serviceName} at ${serviceNumber}...`);
+        let li = document.createElement('li');
+        li.innerHTML = `<span class="time">${time}</span> <span class="info">${serviceName} - ${serviceNumber}</span>`;
+        callHistory.appendChild(li);
+    });
+});

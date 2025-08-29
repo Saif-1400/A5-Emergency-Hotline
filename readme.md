@@ -1,5 +1,4 @@
 
-
 1. What is the difference between **getElementById, getElementsByClassName, and querySelector / querySelectorAll**?
 1.For element by ID 
 2.For elements by Class 
