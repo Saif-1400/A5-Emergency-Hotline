@@ -18,8 +18,10 @@
     <title>Emergency-Hotline</title>
   </head>
   <body>
-    <header class="w-[800px] mx-auto">
-      <nav class="flex justify-between items-center mt-[30px]">
+    <div class="sm:w-[1200px] mx-auto">
+    <!-- header Section -->
+    <header class="">
+      <nav class="flex justify-between items-center mt-[30px] bg-[#ffffff]">
         <div class="flex justify-center items-center">
           <img class="w-[30px] h-[30px]" src="./assets/logo.png" alt="" />
           <h1 class="ml-3 font-bold text-[14px]">
@@ -29,11 +31,11 @@
         </div>
         <div class="flex justify-between items-center gap-5">
           <div class="flex gap-2">
-            <p class="font-bold">0</p>
+            <p id="likeCount" class="font-bold">0</p>
             <img class="w-[20px]" src="./assets/heart.png" alt="" />
           </div>
           <div class="flex gap-2">
-            <p class="font-bold">100</p>
+            <p class="font-bold coin-display">100</p>
             <img class="w-[20px]" src="./assets/coin.png" alt="" />
           </div>
           <button class="px-[19px] py-[7px] text-white bg-green-600 rounded-3xl">2 COPY</button>
@@ -41,8 +43,7 @@
       </nav>
     </header>
 
-
-
     <script src="script.js"></script>
+    </div>
   </body>
 </html>
