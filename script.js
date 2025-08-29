@@ -3,7 +3,7 @@ const likeDisplay = document.getElementById('likeCount');
 const heartButtons = document.querySelectorAll('.heart i');
 
 heartButtons.forEach(span => {
-  span.addEventListener('click', () => {
+  span.addEventListener('click', function () {
     likeCount++;
     likeDisplay.textContent = likeCount;
   });
@@ -38,8 +38,10 @@ callButtons.forEach(btn => {
         li.textContent = `${serviceName} - ${serviceNumber}`;
         callHistory.appendChild(li);
 
-        document.getElementById('clearHistory').addEventListener('click', () =>{
+        document.getElementById('clearHistory').addEventListener('click', function() {
             callHistory.innerHTML = '';
         })
     })
 })
+
+
